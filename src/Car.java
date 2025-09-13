@@ -1,77 +1,73 @@
 public class Car {
-    private final int seats;
+    private final String model;
     private final String engine;
-    private final boolean hasGPS;
-    private final boolean hasTripComputer;
+    private final int seats;
+    private final String color;
+    private final int year;
+    private final int mileage;
 
 
-
-    public Car(int seats, String engine, boolean gps, boolean tripComp) {
-        this.seats = seats;
-        this.engine = engine;
-        this.hasGPS = gps;
-        this.hasTripComputer = tripComp;
+    private Car(Builder builder) {
+        this.model = builder.model;
+        this.engine = builder.engine;
+        this.seats = builder.seats;
+        this.color = builder.color;
+        this.year = builder.year;
+        this.mileage = builder.mileage;
     }
 
 
-    public int getSeats() {
-        return seats;
-    }
-
-    public String getEngine() {
-        return engine;
-    }
-
-    public boolean hasGPS() {
-        return hasGPS;
-    }
-
-    public boolean hasTripComputer() {
-        return hasTripComputer;
-    }
-
-    @Override
-    public String toString() {
-        return "Car{" +
-                "seats=" + seats +
-                ", engine=" + engine +
-                ", hasGPS=" + hasGPS +
-                ", hasTripComputer=" + hasTripComputer +
-                '}';
-    }
-
-
-    public static class Builder {
-
-        private int seats;
+    public static class Builder{
+        private String model;
         private String engine;
-        private boolean hasGPS;
-        private boolean hasTripComputer;
+        private int seats;
+        private String color;
+        private int year;
+        private int mileage;
 
-        public Builder setSeats(int seats) {
-            this.seats = seats; return this;
+
+        public Builder setModel(String model) {
+            this.model = model;
+            return this;
         }
-
-
         public Builder setEngine(String engine) {
             this.engine = engine;
             return this;
         }
-
-
-        public Builder setGPS(boolean gps) {
-            this.hasGPS = gps;
+        public Builder setSeats(int seats) {
+            this.seats = seats;
             return this;
         }
-
-        public Builder setTripComputer(boolean tripComp){
-            this.hasTripComputer = tripComp;
+        public Builder setColor(String color) {
+            this.color = color;
             return this;
         }
-
+        public Builder setYear(int year) {
+            this.year = year;
+            return this;
+        }
+        public Builder setMileage(int mileage) {
+            this.mileage = mileage;
+            return this;
+        }
         public Car build() {
-            return new Car (seats, engine, hasGPS,hasTripComputer);
+            return new Car(this);
         }
+
+    }
+    public static Builder builder() {
+        return new Builder();
+    }
+    @Override
+    public String toString() {
+        return "Car{" +
+                "model='" + model + '\'' +
+                ", engine='" + engine + '\'' +
+                ", seats=" + seats +
+                ", color='" + color + '\'' +
+                ", year=" + year +
+                ", mileage=" + mileage +
+                '}';
+
     }
 }
-
