@@ -1,14 +1,14 @@
 public class Main {
     public static void main(String[] args) {
-        Car Car = new Car.Builder()
-                .setSeats(2)
-                .setEngine("V12")
-                .setGPS(true)
-                .setTripComputer(true)
-                .build();
+        Car f1car = Car.builder()
+            .setModel("F1")
+            .setColor("Red")
+            .setEngine("V12")
+            .setSeats(1)
+            .setYear(2025)
+            .setMileage(120)
+            .build();
 
-        System.out.println(Car);
+        System.out.println(f1car);
     }
 }
-
-
